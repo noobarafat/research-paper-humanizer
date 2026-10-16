@@ -1,69 +1,123 @@
-# Research Paper Humanizer: A Claude Skill to Humanize AI-Assisted Academic Writing
+<p align="center">
+  <img src="assets/banner.svg" alt="Research Paper Humanizer: a Claude skill to humanize AI-assisted academic writing without changing a single number, citation or claim" width="100%">
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Claude Skill](https://img.shields.io/badge/Claude-Skill-orange.svg)](research-paper-humanizer/SKILL.md)
-[![Academic Writing](https://img.shields.io/badge/For-IEEE%20%7C%20Q1%20Journals-green.svg)](#who-is-this-for)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2f80ed?style=for-the-badge" alt="MIT License"></a>
+  <a href="research-paper-humanizer/SKILL.md"><img src="https://img.shields.io/badge/Claude-Skill-f59e6b?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude Skill"></a>
+  <a href="#-evidence-base"><img src="https://img.shields.io/badge/evidence-peer--reviewed-16a34a?style=for-the-badge" alt="Evidence based"></a>
+  <a href="https://github.com/noobarafat/research-paper-humanizer/stargazers"><img src="https://img.shields.io/github/stars/noobarafat/research-paper-humanizer?style=for-the-badge&color=f7c873" alt="GitHub stars"></a>
+</p>
 
-**Research Paper Humanizer** is an evidence-based [Claude](https://claude.ai) skill. It rewrites AI-assisted research papers so they read like an expert human author wrote them. It lowers AI-detection scores on **Turnitin, iThenticate, GPTZero, Originality.ai and Copyleaks** without changing your meaning, numbers, citations, technical terms or formal academic register.
+<p align="center">
+  <b>Lower Turnitin, GPTZero and Originality.ai AI-detection scores on research papers<br>while keeping meaning, citations, technical terms and academic quality intact.</b>
+</p>
 
-Generic "AI humanizers" add opinions, casual voice, typos or synonym swaps. In a research paper those changes damage quality and can get flagged as misconduct. This skill does the opposite. It applies the structural, discourse-level rewriting that corpus studies of LLM-written science show actually matters, and it keeps every fact frozen.
-
-> Built and tested while preparing IEEE conference papers in machine learning and explainable AI, then rebuilt on a literature review of AI-text detection research.
-
----
-
-## Table of Contents
-
-1. [What it does](#what-it-does)
-2. [Why it is different from other AI humanizers](#why-it-is-different-from-other-ai-humanizers)
-3. [Who is this for](#who-is-this-for)
-4. [Installation](#installation)
-5. [How to use](#how-to-use)
-6. [Before and after example](#before-and-after-example)
-7. [What it will never do](#what-it-will-never-do)
-8. [Ethics and AI disclosure](#ethics-and-ai-disclosure)
-9. [Evidence base](#evidence-base)
-10. [FAQ](#faq)
-11. [Author](#author)
+<p align="center">
+  <a href="#-installation">Install</a> ·
+  <a href="#-how-it-works">How it works</a> ·
+  <a href="#-before-and-after">Example</a> ·
+  <a href="#-how-to-use">Usage</a> ·
+  <a href="#-faq">FAQ</a>
+</p>
 
 ---
 
-## What it does
+## ✦ What it is
 
-1. **Removes AI writing patterns found in research.** It cuts excess style words (delve, underscore, showcase, pivotal, intricate, meticulous), trailing participle clauses (", highlighting..."), nominalization chains, stacked transitions and generic openers and closers.
-2. **Rebuilds sentence structure.** It reorders information using Gopen and Swan's topic and stress positions, varies sentence length (burstiness) and varies paragraph shape.
-3. **Freezes every technical token.** Numbers, statistics, p-values, hyperparameters, equations, citations, dataset names, model names, metric names and terms of art stay exactly as written.
-4. **Verifies after every pass.** It checks claim direction and strength, quantifiers, model-family labels and word count. A humanization pass never makes the text longer.
-5. **Gives section-by-section guidance** for the Abstract, Introduction (Swales CARS model), Related Work, Methodology, Results, Discussion, Limitations and Conclusion.
-6. **Includes a plateau protocol.** It explains why scores often stall around 20% on Turnitin and how to fix only the flagged sentence clusters instead of rewriting the whole paper again.
-7. **Has a check-only mode.** When you rewrite or translate a passage yourself, it fixes only factual and mechanical errors (reversed findings, wrong numbers, causal overclaims, citation format) and leaves your phrasing alone.
+**Research Paper Humanizer** is an evidence-based [Claude](https://claude.ai) skill. It rewrites AI-assisted research papers so they read like an expert human author wrote them.
 
-## Why it is different from other AI humanizers
+Generic "AI humanizers" add opinions, casual voice, typos or synonym swaps. In a research paper those changes damage quality and can be flagged as misconduct. This skill does the opposite. It applies the structural, discourse-level rewriting that corpus studies of LLM-written science show actually matters, and it keeps every fact frozen.
 
-| Typical AI humanizer | Research Paper Humanizer |
-|---|---|
-| Swaps synonyms, which can create "tortured phrases" | Freezes technical terms; changes structure first and words last |
-| Adds opinions, humor, "I" and casual tone | Keeps formal research register ("we" and passive for procedures) |
-| Ignores meaning drift | Verifies every claim, number and citation after each pass |
-| Uses typos, homoglyphs or invisible characters | Bans all evasion tricks |
-| Output is a training target for Turnitin's bypasser detection | Produces author-quality prose that improves the paper |
-| No disclosure guidance | Gives IEEE, Elsevier, ACM and Springer Nature disclosure guidance |
+<table>
+  <tr>
+    <td align="center" width="25%"><h3>11</h3>rewrite levers,<br>structure first</td>
+    <td align="center" width="25%"><h3>20+</h3>evidence-backed<br>AI marker words</td>
+    <td align="center" width="25%"><h3>8</h3>paper sections<br>with playbooks</td>
+    <td align="center" width="25%"><h3>0</h3>numbers, citations<br>or terms changed</td>
+  </tr>
+</table>
 
-## Who is this for
+## ✦ Why it is different
 
-1. Researchers, PhD students and master's students writing for **IEEE conferences, Q1 journals, Elsevier, Springer, ACM** and similar venues.
-2. Non-native English academic writers. Detectors flag them more often because constrained, predictable prose looks "AI-like" (Liang et al., *Patterns*, 2023).
-3. Anyone who drafts with ChatGPT, Claude or Gemini and wants the final paper to read as their own polished scholarly writing.
+| | Typical AI humanizer | **Research Paper Humanizer** |
+|---|:---:|:---:|
+| Freezes numbers, citations and technical terms | ❌ | ✅ |
+| Keeps formal research register | ❌ | ✅ |
+| Checks every claim for meaning drift | ❌ | ✅ |
+| Never increases word count | ❌ | ✅ |
+| Avoids typos, homoglyphs and invisible characters | ❌ | ✅ |
+| No reliance on humanizer tools that Turnitin detects | ❌ | ✅ |
+| Section-specific guidance (Abstract to Conclusion) | ❌ | ✅ |
+| Guidance on disclosing AI use to IEEE and other publishers | ❌ | ✅ |
 
-## Installation
+## ✦ How it works
 
-### Claude (web and desktop apps)
+```mermaid
+flowchart LR
+    A["Paste a section"] --> B["1 · Lock<br/>freeze numbers,<br/>citations, terms"]
+    B --> C["2 · Diagnose<br/>markers, tails,<br/>rhythm, templates"]
+    C --> D["3 · Rewrite<br/>structure first,<br/>words last"]
+    D --> E{"4 · Verify"}
+    E -- "meaning or numbers drifted" --> D
+    E -- "all checks pass" --> F["5 · Final text<br/>+ check line"]
+```
+
+**The levers, in priority order:**
+
+| # | Lever | What changes |
+|:-:|---|---|
+| 1 | Information order | Each sentence opens with linking context and ends on the new result (Gopen and Swan) |
+| 2 | Participle tails | ", highlighting X" becomes its own sentence (LLMs use these 2 to 5 times more) |
+| 3 | De-nominalization | "performed the optimization of" becomes "optimized" |
+| 4 | Voice by function | Passive for procedures, "we" for decisions |
+| 5 | Sentence length | Short and long sentences mixed naturally (burstiness) |
+| 6 | Paragraph shape | No repeated claim, citation, claim, citation template |
+| 7 | Transitions | Moreover, Furthermore, Notably stacks removed |
+| 8 | Hedging | Boosters replaced with evidence-calibrated hedges (Hyland) |
+| 9 | Specificity | Vague phrases point to what the passage already names |
+| 10 | Vocabulary | Marker words swapped last, for plain words |
+| 11 | Lists to prose | Contribution lists rewritten as varied prose |
+
+## ✦ Before and after
+
+```diff
+- In recent years, explainable artificial intelligence has garnered significant attention,
+- playing a pivotal role in high-stakes domains. Notably, SHAP has emerged as a comprehensive
+- framework for interpreting model predictions, highlighting the contribution of each feature.
+- Furthermore, the integration of SHAP with gradient boosting enables a deeper understanding
+- of complex decision processes, underscoring its potential for real-world deployment.
++ Explainable artificial intelligence has drawn significant attention and plays a central role
++ in high-stakes domains. SHAP has become a general framework for interpreting model
++ predictions. It assigns each feature a contribution. Paired with gradient boosting, it
++ clarifies how complex models reach decisions. This gives the combination potential for
++ real-world deployment.
+```
+
+<table>
+  <tr>
+    <th>Removed</th>
+    <th>Kept exactly</th>
+  </tr>
+  <tr>
+    <td>Generic opener "In recent years"<br>3 participle tails<br>2 stacked transitions<br>4 marker words (garnered, pivotal, comprehensive, underscoring)</td>
+    <td>Every claim at the same strength<br>All technical terms<br>The hedge on "potential"<br>Word count: 57 down to 51</td>
+  </tr>
+</table>
+
+## ✦ Installation
+
+<details open>
+<summary><b>Claude (web and desktop apps)</b></summary>
 
 1. Download [`research-paper-humanizer.zip`](research-paper-humanizer.zip) from this repository.
 2. Upload the zip in the Skills section of Claude's settings.
 3. Make sure the skill is enabled.
 
-### Claude Code
+</details>
+
+<details>
+<summary><b>Claude Code</b></summary>
 
 ```bash
 git clone https://github.com/noobarafat/research-paper-humanizer.git
@@ -73,13 +127,18 @@ cp -r research-paper-humanizer/research-paper-humanizer ~/.claude/skills/
 
 For a project-level install, copy the folder into `.claude/skills/` inside your project instead.
 
-### Other agents
+</details>
+
+<details>
+<summary><b>Other agents</b></summary>
 
 The skill is a single Markdown file, [`research-paper-humanizer/SKILL.md`](research-paper-humanizer/SKILL.md). Any agent that supports Agent Skills, or any LLM given the file as instructions, can use it.
 
-## How to use
+</details>
 
-Paste a section of your paper and ask Claude to humanize it, or invoke the skill by name:
+## ✦ How to use
+
+Paste a section of your paper and ask Claude to humanize it, or call the skill by name:
 
 ```text
 /research-paper-humanizer
@@ -92,8 +151,6 @@ By default you get the final rewrite, ready to paste, followed by one check line
 Words: 214 -> 201 | Numbers, citations, terms: unchanged
 ```
 
-Other modes:
-
 | Mode | What it does |
 |---|---|
 | `audit` | Lists the remaining AI tells sentence by sentence, without rewriting |
@@ -101,21 +158,19 @@ Other modes:
 | `check` | Fixes only factual and mechanical errors in text you wrote or translated |
 | `trim to N` | Cuts the passage to N words or fewer with no content loss |
 
-**Tip for stubborn scores:** Turnitin shows scores from 1% to 19% only as "*%". If your paper is stuck around 20%, send only the sentences Turnitin highlights rather than the whole section.
+> [!TIP]
+> Turnitin shows scores from 1% to 19% only as "*%". If your paper is stuck around 20%, send only the sentences Turnitin highlights instead of the whole section.
 
-## Before and after example
+## ✦ Who it is for
 
-**Before (57 words, AI-typical):**
+1. Researchers, PhD students and master's students writing for **IEEE conferences, Q1 journals, Elsevier, Springer, ACM** and similar venues.
+2. Non-native English academic writers. Detectors flag them more often because constrained, predictable prose looks "AI-like" (Liang et al., *Patterns*, 2023).
+3. Anyone who drafts with ChatGPT, Claude or Gemini and wants the final paper to read as their own polished scholarly writing.
 
-> In recent years, explainable artificial intelligence has garnered significant attention, playing a pivotal role in high-stakes domains. Notably, SHAP has emerged as a comprehensive framework for interpreting model predictions, highlighting the contribution of each feature. Furthermore, the integration of SHAP with gradient boosting enables a deeper understanding of complex decision processes, underscoring its potential for real-world deployment.
+## ✦ What it will never do
 
-**After (51 words, same claims):**
-
-> Explainable artificial intelligence has drawn significant attention and plays a central role in high-stakes domains. SHAP has become a general framework for interpreting model predictions. It assigns each feature a contribution. Paired with gradient boosting, it clarifies how complex models reach decisions. This gives the combination potential for real-world deployment.
-
-The rewrite removes the generic opener, three participle tails, two stacked transitions and four marker words. Sentence lengths now vary. Every claim keeps its original strength.
-
-## What it will never do
+> [!WARNING]
+> These techniques are either detected, banned as misconduct, or both. The skill refuses all of them.
 
 1. Use homoglyphs, zero-width or invisible characters, or white text.
 2. Insert deliberate typos or grammar errors.
@@ -125,17 +180,24 @@ The rewrite removes the generic opener, three participle tails, two stacked tran
 6. Fabricate data, citations, hedges or examples.
 7. Advise hiding AI use where a venue requires disclosure.
 
-## Ethics and AI disclosure
+## ✦ Ethics and AI disclosure
 
-This skill removes **false AI signals** from content the author owns and has verified. It does not replace your venue's AI-use policy.
+> [!IMPORTANT]
+> This skill removes **false AI signals** from content the author owns and has verified. It does not replace your venue's AI-use policy.
 
-1. **IEEE** requires AI-generated content to be disclosed in the Acknowledgments. The disclosure names the system, the sections and the level of use.
-2. **Elsevier** requires a separate generative AI declaration placed before the references.
-3. **ACM** and **Springer Nature** also require disclosure. Check your target venue's current author guide.
+| Publisher | Requirement |
+|---|---|
+| **IEEE** | Disclose AI-generated content in the Acknowledgments: system, sections and level of use |
+| **Elsevier** | Separate generative AI declaration placed before the references |
+| **ACM** | Full disclosure in the work when AI generates content |
+| **Springer Nature** | Document LLM use; check the specific journal's guide |
 
 The skill offers ready-to-adapt disclosure text at the end of a full-paper job.
 
-## Evidence base
+## ✦ Evidence base
+
+<details>
+<summary><b>Show the 11 sources behind the rules</b></summary>
 
 1. Kobak et al., "Delving into LLM-assisted writing in biomedical publications through excess vocabulary," *Science Advances*, 2025.
 2. Liang et al., "Monitoring AI-Modified Content at Scale," *ICML* 2024; "Mapping the Increasing Use of LLMs in Scientific Papers," *COLM* 2024.
@@ -149,29 +211,54 @@ The skill offers ready-to-adapt disclosure text at the end of a full-paper job.
 10. Cabanac et al., "Tortured phrases," 2021.
 11. Turnitin AI writing detection model release notes; IEEE PSPB Operations Manual 8.2.1.B.10.
 
-## FAQ
+</details>
 
-**Does this guarantee a 0% AI score?**
+## ✦ FAQ
+
+<details>
+<summary><b>Does this guarantee a 0% AI score?</b></summary>
+
 No. Technical papers keep a floor because terminology cannot change. In practice, structural rewriting brings many papers from about 60% to about 20%. The skill then targets only the remaining flagged clusters.
 
-**Is humanizing a research paper allowed?**
+</details>
+
+<details>
+<summary><b>Is humanizing a research paper allowed?</b></summary>
+
 Improving the language of your own verified work is normal academic editing. What matters is following your venue's AI disclosure policy, which this skill supports.
 
-**Will it change my results or citations?**
+</details>
+
+<details>
+<summary><b>Will it change my results or citations?</b></summary>
+
 No. Numbers, citations, equations and terms of art are frozen, and every pass is checked for meaning drift.
 
-**Does it work with ChatGPT or Gemini drafts?**
+</details>
+
+<details>
+<summary><b>Does it work with ChatGPT or Gemini drafts?</b></summary>
+
 Yes. It works on any AI-assisted draft. The skill itself runs in Claude, or in any agent that supports Agent Skills.
 
-**Does it work for non-IEEE papers?**
+</details>
+
+<details>
+<summary><b>Does it work for non-IEEE papers?</b></summary>
+
 Yes. IEEE is the default citation style. The house style section lets you switch to your venue's rules.
 
-## Author
-
-**K. M. Arafat Islam**, CSE graduate, Daffodil International University, Dhaka, Bangladesh. Research focus: explainable AI (SHAP, LIME) in socioeconomic domains.
-
-If this skill helps your paper, star the repo so other researchers can find it.
+</details>
 
 ---
 
-**Keywords:** research paper humanizer, humanize AI text, AI humanizer for academic writing, reduce AI detection score, Turnitin AI detection, GPTZero, Originality.ai, iThenticate, academic writing, scientific writing, IEEE paper writing, journal paper editing, Claude skill, Claude Code skill, Agent Skills, ChatGPT academic writing, LLM writing detection, AI writing patterns, research integrity, AI disclosure.
+<p align="center">
+  Built by <b>K. M. Arafat Islam</b> · CSE, Daffodil International University, Dhaka<br>
+  Research focus: explainable AI (SHAP, LIME) in socioeconomic domains
+</p>
+
+<p align="center">
+  If this skill helps your paper, <a href="https://github.com/noobarafat/research-paper-humanizer">star the repo</a> so other researchers can find it.
+</p>
+
+<p align="center"><sub>Keywords: research paper humanizer · humanize AI text · AI humanizer for academic writing · reduce AI detection score · Turnitin AI detection · GPTZero · Originality.ai · iThenticate · academic writing · scientific writing · IEEE paper writing · Claude skill · Claude Code skill · Agent Skills · ChatGPT academic writing · research integrity · AI disclosure</sub></p>
